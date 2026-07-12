@@ -1,0 +1,255 @@
+Request
+    │
+    ▼
+LoggerMiddleware
+    │
+    ▼
+ValidationMiddleware
+    │
+    ▼
+SecurityMiddleware
+    │
+    ▼
+AuthMiddleware
+    │
+    ▼
+RateLimitMiddleware
+    │
+    ▼
+WAFMiddleware
+    │
+    ▼
+RouterMiddleware
+    │
+    ▼
+ProxyMiddleware
+    │
+    ▼
+Response
+
+
+
+
+Internet
+    │
+    ▼
+Logger
+    │
+    ▼
+Validation
+    │
+    ▼
+Security
+    │
+    ▼
+WAF
+    │
+    ├──────────────┐
+    │              │
+ Safe Request      Malicious Request
+    │              │
+    ▼              ▼
+ Authentication   Return 403
+    │
+    ▼
+ Router
+    │
+    ▼
+ Backend
+
+
+
+
+
+
+
+
+                  WAF Middleware
+                       │
+        ┌──────────────┴──────────────┐
+        │                             │
+        ▼                             ▼
+   Rule Engine                  Threat Score
+        │                             │
+        ▼                             ▼
+  SQL Injection               +30
+  XSS                         +40
+  Path Traversal              +50
+  Command Injection           +60
+  File Upload                 +20
+  Header Validation           +10
+        │
+        ▼
+  Decision Engine
+        │
+   ├── Score < 50 → Allow
+   ├── Score 50–79 → Challenge
+   └── Score ≥ 80 → Block
+
+
+
+   
+
+
+
+
+
+
+                   HTTP Request
+                     │
+                     ▼
+           Request Normalization
+     (URL decode, HTML decode, Unicode,
+      whitespace normalization)
+                     │
+                     ▼
+            HTTP Request Parser
+                     │
+                     ▼
+      ┌──────────────┼──────────────┐
+      ▼              ▼              ▼
+  SQL Engine     XSS Engine    SSRF Engine
+      ▼              ▼              ▼
+ Command Engine  Upload Engine Header Engine
+      ▼              ▼              ▼
+          Threat Correlation Engine
+                     │
+                     ▼
+              Threat Scoring
+                     │
+                     ▼
+             Decision Engine
+                     │
+          Allow / Log / Block
+
+
+
+plane changed
+
+HTTP Request
+      │
+      ▼
+──────────────────────────────
+Context Builder
+──────────────────────────────
+      │
+      ▼
+──────────────────────────────
+Request Parser
+──────────────────────────────
+      │
+      ▼
+──────────────────────────────
+Normalizer Engine
+──────────────────────────────
+      │
+      ▼
+──────────────────────────────
+SecurityContext
+──────────────────────────────
+      │
+      ▼
+Detection Engine
+
+
+
+
+
+WAF Flow
+
+Incoming Request
+
+↓
+
+RequestParser
+
+↓
+
+SecurityContext
+
+↓
+
+RequestNormalizer
+
+↓
+
+DetectionEngine
+
+↓
+
+ThreatScorer
+
+↓
+
+DecisionEngine
+
+↓
+
+Response
+
+
+
+
+
+
+Parser Flow
+
+Incoming Request
+        │
+        ▼
+Create SecurityContext
+        │
+        ▼
+Parse URL
+        │
+        ▼
+Parse Headers
+        │
+        ▼
+Parse Cookies
+        │
+        ▼
+Parse Query
+        │
+        ▼
+Parse Body
+        │
+        ▼
+Extract Metadata
+        │
+        ▼
+Return SecurityContext
+
+
+
+
+
+
+Incoming Request
+       │
+       ▼
+RequestParser
+       │
+       ▼
+SecurityContext
+       │
+       ▼
+NormalizationPipeline
+       │
+       ▼
+DetectionEngine
+       │
+       ├── XSSDetector
+       ├── SQLDetector
+       ├── SSRFDetector
+       ├── XXEDetector
+       └── ...
+       │
+       ▼
+ThreatScorer
+       │
+       ▼
+DecisionEngine
+       │
+       ▼
+ALLOW / LOG / CHALLENGE / BLOCK

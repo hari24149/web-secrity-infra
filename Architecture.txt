@@ -1,0 +1,212 @@
+                                         ┌──────────────────────────┐
+                                         │         Internet         │
+                                         └────────────┬─────────────┘
+                                                      │
+                                             DNS / Anycast / CDN
+                                                      │
+                                                      ▼
+═══════════════════════════════════════════════════════════════════════════════
+                    PROJECT SENTINEL - EDGE SECURITY PLATFORM
+═══════════════════════════════════════════════════════════════════════════════
+
+                 ┌────────────────────────────────────────────────┐
+                 │          Request Intake Engine                 │
+                 │────────────────────────────────────────────────│
+                 │ HTTP/HTTPS                                     │
+                 │ HTTP2                                          │
+                 │ HTTP3                                          │
+                 │ WebSocket                                      │
+                 │ gRPC (Future)                                 │
+                 │ Streaming Requests                             │
+                 └────────────────────────────────────────────────┘
+                                 │
+                                 ▼
+───────────────────────────────────────────────────────────────────────────────
+                    Layer 1 : Request Validation
+───────────────────────────────────────────────────────────────────────────────
+
+✔ Protocol Validation
+✔ Method Validation
+✔ Header Validation
+✔ Host Validation
+✔ URL Validation
+✔ Query Validation
+✔ Cookie Validation
+✔ Body Validation
+✔ Multipart Validation
+✔ Content-Type Validation
+✔ Content-Length Validation
+✔ Encoding Validation
+✔ Character Validation
+✔ File Upload Validation
+
+                                 │
+                                 ▼
+───────────────────────────────────────────────────────────────────────────────
+                     Layer 2 : Threat Detection
+───────────────────────────────────────────────────────────────────────────────
+
+WAF Engine
+
+    SQL Injection
+    XSS
+    XXE
+    SSRF
+    Command Injection
+    Template Injection
+    LDAP Injection
+    XML Injection
+    XPath Injection
+    CRLF Injection
+    Path Traversal
+    Directory Traversal
+    File Inclusion
+    RCE Detection
+    Buffer Overflow Patterns
+    Shell Payload Detection
+    Deserialization Detection
+    Malicious User Agents
+    Scanner Detection
+    Fuzzing Detection
+
+                                 │
+                                 ▼
+───────────────────────────────────────────────────────────────────────────────
+                    Layer 3 : Network Protection
+───────────────────────────────────────────────────────────────────────────────
+
+IP Reputation
+Geo Blocking
+ASN Blocking
+CIDR Rules
+Tor Exit Node Detection
+VPN Detection
+Proxy Detection
+Datacenter Detection
+Country Rules
+Region Rules
+ISP Rules
+Private IP Validation
+
+                                 │
+                                 ▼
+───────────────────────────────────────────────────────────────────────────────
+                      Layer 4 : Bot Protection
+───────────────────────────────────────────────────────────────────────────────
+
+Browser Fingerprinting
+TLS Fingerprinting
+Behavior Analysis
+Rate Pattern Detection
+Challenge System
+JavaScript Challenge
+CAPTCHA
+Automation Detection
+Headless Browser Detection
+Known Bot Detection
+
+                                 │
+                                 ▼
+───────────────────────────────────────────────────────────────────────────────
+                      Layer 5 : DDoS Protection
+───────────────────────────────────────────────────────────────────────────────
+
+Connection Tracking
+Rate Limiting
+Adaptive Rate Limiting
+Burst Detection
+Flood Detection
+Slowloris Detection
+Resource Protection
+
+                                 │
+                                 ▼
+───────────────────────────────────────────────────────────────────────────────
+                     Layer 6 : Authentication
+───────────────────────────────────────────────────────────────────────────────
+
+Google OAuth
+JWT
+API Keys
+Session Manager
+RBAC
+Zero Trust Policies
+Admin Authentication
+
+                                 │
+                                 ▼
+───────────────────────────────────────────────────────────────────────────────
+                     Layer 7 : Policy Engine
+───────────────────────────────────────────────────────────────────────────────
+
+Allow Rules
+Block Rules
+Challenge Rules
+Custom Policies
+Tenant Policies
+Priority Rules
+Emergency Rules
+
+                                 │
+                                 ▼
+───────────────────────────────────────────────────────────────────────────────
+                    Decision Engine
+───────────────────────────────────────────────────────────────────────────────
+
+Threat Score
+Confidence Score
+Policy Evaluation
+Risk Classification
+
+ALLOW
+BLOCK
+CHALLENGE
+LOG ONLY
+RATE LIMIT
+
+                                 │
+                      PASS ONLY IF SAFE
+                                 │
+                                 ▼
+───────────────────────────────────────────────────────────────────────────────
+                  Gateway & Traffic Management
+───────────────────────────────────────────────────────────────────────────────
+
+Reverse Proxy
+API Gateway
+Load Balancer
+Sticky Sessions
+Health Checks
+Circuit Breaker
+Retry Engine
+Timeout Manager
+Connection Pool
+Caching
+Compression
+
+                                 │
+                                 ▼
+───────────────────────────────────────────────────────────────────────────────
+                        Backend Services
+───────────────────────────────────────────────────────────────────────────────
+
+Application 1
+Application 2
+Application 3
+Microservices
+Database APIs
+Storage APIs
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Parallel Systems
+
+Logging Engine
+Metrics Engine
+Analytics Engine
+Dashboard
+Alert Engine
+Audit Logs
+Configuration Manager
+Plugin Manager
+Threat Intelligence

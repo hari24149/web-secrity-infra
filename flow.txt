@@ -1,0 +1,47 @@
+Incoming Request
+        │
+        ▼
+Create Context
+        │
+        ▼
+Load Configuration
+        │
+        ▼
+Run Pipeline
+        │
+        ▼
+Execute Middleware
+        │
+        ▼
+Router
+        │
+        ▼
+Handler
+        │
+        ▼
+Response
+        │
+        ▼
+Return Client
+
+
+
+
+
+
+Raw Request
+     │
+     ▼
+RequestParser
+     │
+     ▼
+SecurityContext
+     │
+     ▼
+NormalizationPipeline
+     │
+     ▼
+Normalized SecurityContext
+     │
+     ▼
+DetectionEngine
